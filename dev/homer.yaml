@@ -86,7 +86,7 @@ spec:
   selector:
     matchLabels:
       app: homer
-  replicas: 1
+  replicas: 5
   template:
     metadata:
       labels:
