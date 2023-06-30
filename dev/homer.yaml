@@ -1,0 +1,110 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: homer-ingress
+  labels:
+    app: homer
+spec:
+  ingressClassName: public
+  rules:
+  - host: homer.seifts.us
+    http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: homer-service
+            port:
+              number: 8080
+        pathType: Prefix
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homer-service
+  labels:
+    app: homer
+spec:
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: homer
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homer-config
+  labels:
+    app: homer
+data:
+  homer-config: |
+    title: "Dashboard"
+    subtitle: "homer.seifts.us"
+    connectivityCheck: true
+    services:
+      - name: "Home Automation"
+        icon: "fas fa-code-branch"
+        items:
+        - name: "Home Assistant"
+          icon: "fas fa-home"
+          url: "http://automation.home.seifts.us:8123/lovelace/home"
+      - name: "Ski reports"
+        icon: "fas fa-code-branch"
+        items:
+        - name: "Beech Mountain"
+          icon: "fas fa-home"
+          url: "http://beechreports.home.seifts.us/"
+        - name: "Sugar Mountain"
+          icon: "fas fa-home"
+          url: "http://sugarreports.home.seifts.us/"
+      - name: "Weather"
+        icon: "fas fa-code-branch"
+        items:
+        - name: "Boone"
+          icon: "fas fa-home"
+          url: "https://forecast.weather.gov/MapClick.php?lat=36.21615710000003&lon=-81.67768079999996"
+      - name: "Servers"
+        icon: "fas fa-cloud"
+        items:
+        - name: "host2.home.seifts.us"
+          icon: "fas fa-home"
+          tag: "app"
+          url: "host2.home.seifts.us"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homer
+  labels:
+    app: homer
+spec:
+  selector:
+    matchLabels:
+      app: homer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: homer
+    spec:
+      volumes:
+        - name: homer-config-volume
+          configMap:
+            name: homer-config
+            items:
+              - key: homer-config
+                path: config.yml
+      containers:
+        - name: homer
+          image: b4bz/homer:latest
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: homer-config-volume
+              mountPath: /www/assets/config.yml
+              subPath: config.yml
