@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata: 
+  name: homer
+  namespace: argocd
+spec:
+  description: An argocd app project for hosting a local homer instance
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: '*'
+    namespace: '*'
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - https://github.com/zachseifts/dashboard.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: homer
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/zachseifts/dashboard.git
+      revision: HEAD
+      directories:
+        - path: environments/*
+  template:
+    metadata:
+      name: 'homer-{{path.basename}}'
+    spec:
+      project: homer
+      source:
+        repoURL: https://github.com/zachseifts/dashboard.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'homer-{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

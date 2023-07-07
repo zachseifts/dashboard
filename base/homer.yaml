@@ -1,0 +1,67 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: homer-ingress
+  labels:
+    component: homer
+spec:
+  ingressClassName: public
+  rules:
+  - host: homer.seifts.us
+    http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: homer-service
+            port:
+              number: 8080
+        pathType: Prefix
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homer-service
+  labels:
+    component: homer
+spec:
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  selector:
+    component: homer
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homer
+  labels:
+    component: homer
+spec:
+  selector:
+    matchLabels:
+      component: homer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: homer
+    spec:
+      volumes:
+        - name: homer-config-volume
+          configMap:
+            name: homer-config
+            items:
+              - key: homer-config
+                path: config.yml
+      containers:
+        - name: homer
+          image: b4bz/homer:latest
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: homer-config-volume
+              mountPath: /www/assets/config.yml
+              subPath: config.yml

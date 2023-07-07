@@ -1,0 +1,32 @@
+title: "Dashboard"
+subtitle: "homer.seifts.us"
+connectivityCheck: true
+services:
+  - name: "Home Automation"
+    icon: "fas fa-code-branch"
+    items:
+    - name: "Home Assistant"
+      icon: "fas fa-home"
+      url: "http://automation.home.seifts.us:8123/lovelace/home"
+  - name: "Ski reports"
+    icon: "fas fa-code-branch"
+    items:
+    - name: "Beech Mountain"
+      icon: "fas fa-home"
+      url: "http://beechreports.home.seifts.us/"
+    - name: "Sugar Mountain"
+      icon: "fas fa-home"
+      url: "http://sugarreports.home.seifts.us/"
+  - name: "Weather"
+    icon: "fas fa-code-branch"
+    items:
+    - name: "Boone"
+      icon: "fas fa-home"
+      url: "https://forecast.weather.gov/MapClick.php?lat=36.21615710000003&lon=-81.67768079999996"
+  - name: "Servers"
+    icon: "fas fa-cloud"
+    items:
+    - name: "host2.home.seifts.us"
+      icon: "fas fa-home"
+      tag: "app"
+      url: "host2.home.seifts.us"
