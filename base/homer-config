@@ -13,10 +13,10 @@ services:
     items:
     - name: "Beech Mountain"
       icon: "fas fa-home"
-      url: "http://beechreports.home.seifts.us/"
+      url: "http://beech.skireports.home.seifts.us/"
     - name: "Sugar Mountain"
       icon: "fas fa-home"
-      url: "http://sugarreports.home.seifts.us/"
+      url: "http://sugar.skireports.home.seifts.us/"
   - name: "Weather"
     icon: "fas fa-code-branch"
     items:
