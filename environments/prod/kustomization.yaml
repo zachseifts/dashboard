@@ -1,5 +1,4 @@
 resources:
  - ../../base
-namespace: homer-dev
 commonLabels:
-  env: dev
+  env: prod
