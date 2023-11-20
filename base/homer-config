@@ -7,7 +7,7 @@ services:
     items:
     - name: "Home Assistant"
       icon: "fas fa-home"
-      url: "http://automation.home.seifts.us:8123/lovelace/home"
+      url: "http://ha.home.seifts.us/"
   - name: "Ski reports"
     icon: "fas fa-code-branch"
     items:
