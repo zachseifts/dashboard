@@ -20,7 +20,7 @@ services:
     - name: "host2.home.seifts.us"
       icon: "fas fa-home"
       tag: "linux"
-      url: "host2.home.seifts.us"
+      url: "http://host2.home.seifts.us"
     - name: "edge router"
       icon: "fas fa-network-wired"
       tag: "network"
