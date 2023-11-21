@@ -1,27 +1,21 @@
-title: "Dashboard"
+title: "dashboard"
 subtitle: "dashboard.home.seifts.us"
 connectivityCheck: true
 services:
-  - name: "Applications"
+  - name: "applications"
     icon: "fas fa-code-branch"
     items:
-    - name: "Home Assistant"
+    - name: "home assistant"
       icon: "fas fa-home"
       url: "http://ha.home.seifts.us/"
-    - name: "Beech Ski Reports"
+    - name: "beech ski reports"
       icon: "fas fa-person-skiing"
       url: "http://beech.skireports.home.seifts.us/"
     - name: "argoCD"
       icon: "fas fa-cloud"
       url: "https://host2.home.seifts.us:30987/"
-  - name: "Weather"
-    icon: "fas fa-code-branch"
-    items:
-    - name: "Boone"
-      icon: "fas fa-home"
-      url: "https://forecast.weather.gov/MapClick.php?lat=36.21615710000003&lon=-81.67768079999996"
-  - name: "Infrastructure"
-    icon: "fas fa-cloud"
+  - name: "infrastructure"
+    icon: "fas fa-server"
     items:
     - name: "host2.home.seifts.us"
       icon: "fas fa-home"
@@ -39,3 +33,9 @@ services:
       icon: "fas fa-wifi"
       tag: "network"
       url: "http://192.168.0.10/"
+  - name: "weather"
+    icon: "fas fa-code-branch"
+    items:
+    - name: "boone"
+      icon: "fas fa-home"
+      url: "https://forecast.weather.gov/MapClick.php?lat=36.21615710000003&lon=-81.67768079999996"
