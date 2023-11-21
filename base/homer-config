@@ -1,22 +1,19 @@
 title: "Dashboard"
-subtitle: "homer.seifts.us"
+subtitle: "dashboard.home.seifts.us"
 connectivityCheck: true
 services:
-  - name: "Home Automation"
+  - name: "Applications"
     icon: "fas fa-code-branch"
     items:
     - name: "Home Assistant"
       icon: "fas fa-home"
       url: "http://ha.home.seifts.us/"
-  - name: "Ski reports"
-    icon: "fas fa-code-branch"
-    items:
-    - name: "Beech Mountain"
-      icon: "fas fa-home"
+    - name: "Beech Ski Reports"
+      icon: "fas fa-person-skiing"
       url: "http://beech.skireports.home.seifts.us/"
-    - name: "Sugar Mountain"
-      icon: "fas fa-home"
-      url: "http://sugar.skireports.home.seifts.us/"
+    - name: "argoCD"
+      icon: "fas fa-cloud"
+      url: "https://host2.home.seifts.us:30987/"
   - name: "Weather"
     icon: "fas fa-code-branch"
     items:
