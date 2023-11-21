@@ -19,7 +19,7 @@ services:
     items:
     - name: "host2.home.seifts.us"
       icon: "fas fa-home"
-      tag: "app"
+      tag: "linux"
       url: "host2.home.seifts.us"
     - name: "edge router"
       icon: "fas fa-network-wired"
