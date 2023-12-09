@@ -40,5 +40,5 @@ services:
       icon: "fas fa-home"
       url: "https://forecast.weather.gov/MapClick.php?lat=36.21615710000003&lon=-81.67768079999996"
     - name: "the fleet repo"
-      icon: "fas fa-github"
+      icon: "fas fa-code"
       url: "https://github.com/zachseifts/fleet"
