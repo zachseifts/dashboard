@@ -36,9 +36,12 @@ services:
   - name: "stuff"
     icon: "fas fa-code-branch"
     items:
-    - name: "boone weather"
+    - name: "noaa forecast: boone"
       icon: "fas fa-home"
       url: "https://forecast.weather.gov/MapClick.php?lat=36.21615710000003&lon=-81.67768079999996"
+    - name: "noaa forecast: beech"
+      icon: "fas fa-person-skiing"
+      url: "https://forecast.weather.gov/MapClick.php?lat=36.1944&lon=-81.874"
     - name: "the fleet repo"
       icon: "fas fa-code"
       url: "https://github.com/zachseifts/fleet"
