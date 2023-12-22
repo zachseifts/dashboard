@@ -1,6 +1,9 @@
 title: "dashboard"
 subtitle: "dashboard.home.seifts.us"
 connectivityCheck: true
+message:
+  url: http://api.home.seifts.us/weather/test
+  refreshInterval: 10000
 services:
   - name: "applications"
     icon: "fas fa-code-branch"
