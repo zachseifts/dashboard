@@ -2,7 +2,7 @@ title: "dashboard"
 subtitle: "dashboard.home.seifts.us"
 connectivityCheck: true
 message:
-  url: api.home.seifts.us/weather/hazards
+  url: http://api.home.seifts.us/weather/hazards
   refreshInterval: 50000
 services:
   - name: "applications"
