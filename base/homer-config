@@ -4,6 +4,8 @@ connectivityCheck: true
 message:
   url: http://api.home.seifts.us/weather/hazards
   refreshInterval: 50000
+  style: "is-warning"
+  icon: "fa fa-exclamation-triangle"
 services:
   - name: "applications"
     icon: "fas fa-code-branch"
